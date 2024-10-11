@@ -23,7 +23,7 @@ const listTemplateVariableKeys = () => {
     templatePaths.flatMap(({ from }) => {
       const templateFilePath = variablerDirectoryPath(`templates/${from}`)
       const content = readFile(templateFilePath)
-      const variablePattern = new RegExp(`@[^\s]*@`, 'g')
+      const variablePattern = /@[^\s]*@/g
       const variableKeys = content.match(variablePattern)
       return variableKeys ? variableKeys.map(key => key.substring(1, key.length - 1)) : []
     })
