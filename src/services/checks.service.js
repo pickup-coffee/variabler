@@ -8,7 +8,7 @@ const assert = (check, error) => {
   process.exit(1)
 }
 
-const checkFilesConsistency = ({ configFiles, files, onError }) => {
+const checkFilesConsistency = ({ configFiles = [], files, onError }) => {
   configFiles.forEach(configFile => {
     if (!files.find(file => file.to === configFile.to)) {
       loggerService.logError(`Value for file "${configFile.id}" not found`)
